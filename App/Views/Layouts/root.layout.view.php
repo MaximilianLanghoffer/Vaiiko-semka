@@ -30,20 +30,33 @@
         </a>
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?= $link->url('home.contact') ?>">Contact</a>
+                <a class="nav-link" href="<?= $link->url('explore.index') ?>">Objavuj</a>
             </li>
         </ul>
         <?php if ($user->isLoggedIn()) { ?>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link->url('profile.index') ?>">Profil</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link->url('feed.index') ?>">Pre teba</a>
+                </li>
+            </ul>
+
+
             <span class="navbar-text">Logged in user: <b><?= $user->getName() ?></b></span>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $link->url('auth.logout') ?>">Log out</a>
+                    <a class="nav-link" href="<?= $link->url('auth.logout') ?>">Odhlásiť sa</a>
                 </li>
             </ul>
         <?php } else { ?>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= App\Configuration::LOGIN_URL ?>">Log in</a>
+                    <a class="nav-link" href="<?= App\Configuration::LOGIN_URL ?>">Prihlásiť sa</a>
                 </li>
             </ul>
         <?php } ?>
