@@ -11,7 +11,7 @@ class User extends Model
     protected string $password_hash;
     protected ?string $description = null;
     protected ?string $profile_pic_path = null;
-    protected int $created_at;
+    protected string $created_at;
 
     public function getId(): ?int
     {

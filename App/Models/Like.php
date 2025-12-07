@@ -7,7 +7,7 @@ class Like
     protected ?int $id = null;
     protected int $post_id;
     protected int $user_id;
-    protected int $given_at;
+    protected string $given_at;
 
     public function getId(): ?int
     {

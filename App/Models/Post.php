@@ -10,7 +10,7 @@ class Post extends Model
     protected int $user_id;
     protected string $picture;
     protected ?string $description = null;
-    protected int $created_at;
+    protected string $created_at;
 
     public function getId(): ?int
     {

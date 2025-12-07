@@ -14,7 +14,7 @@ CREATE TABLE `comments` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `text` varchar(500) NOT NULL,
-  `commented_at` timestamp NOT NULL,
+  `commented_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `user_id` (`user_id`),
@@ -25,9 +25,11 @@ CREATE TABLE `comments` (
 
 DROP TABLE IF EXISTS `follows`;
 CREATE TABLE `follows` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `follower_id` int(11) NOT NULL,
-  `followed_at` timestamp NOT NULL,
+  `followed_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `follower_id` (`follower_id`),
   CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
@@ -40,7 +42,7 @@ CREATE TABLE `likes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `given_at` timestamp NOT NULL,
+  `given_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `user_id` (`user_id`),
@@ -55,7 +57,7 @@ CREATE TABLE `posts` (
   `user_id` int(11) NOT NULL,
   `picture` varchar(255) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
@@ -70,9 +72,9 @@ CREATE TABLE `users` (
   `password_hash` varchar(255) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   `profile_pic_path` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 
--- 2025-12-07 14:15:48 UTC
+-- 2025-12-07 14:14:11 UTC
