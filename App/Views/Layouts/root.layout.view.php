@@ -34,11 +34,6 @@
             </li>
         </ul>
         <?php if ($user->isLoggedIn()) { ?>
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= $link->url('profile.index') ?>">Profil</a>
-                </li>
-            </ul>
 
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
@@ -46,8 +41,18 @@
                 </li>
             </ul>
 
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link->url('search.index') ?>">Vyhľadaj</a>
+                </li>
+            </ul>
 
-            <span class="navbar-text">Logged in user: <b><?= $user->getName() ?></b></span>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link->url('profile.index') ?>"><?= $user->getName() ?></a>
+                </li>
+            </ul>
+
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $link->url('auth.logout') ?>">Odhlásiť sa</a>
